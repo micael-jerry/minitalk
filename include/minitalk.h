@@ -6,7 +6,7 @@
 /*   By: mfidimal <mfidimal@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 19:49:58 by mfidimal          #+#    #+#             */
-/*   Updated: 2025/01/29 19:50:56 by mfidimal         ###   ########.fr       */
+/*   Updated: 2025/01/30 08:34:06 by mfidimal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 #define MINITALK_H
 
 #include "../ft_printf/include/ft_printf.h"
+#include <sys/types.h>
+#include <signal.h>
 
 #endif
