@@ -6,7 +6,15 @@
 /*   By: mfidimal <mfidimal@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 08:31:37 by mfidimal          #+#    #+#             */
-/*   Updated: 2025/01/30 08:31:38 by mfidimal         ###   ########.fr       */
+/*   Updated: 2025/01/30 08:55:31 by mfidimal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
+#include "minitalk.h"
+
+int main(void)
+{
+	ft_printf("server\n");
+	return 0;
+}
