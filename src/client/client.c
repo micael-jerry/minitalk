@@ -6,7 +6,7 @@
 /*   By: mfidimal <mfidimal@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 08:31:44 by mfidimal          #+#    #+#             */
-/*   Updated: 2025/01/31 18:03:22 by mfidimal         ###   ########.fr       */
+/*   Updated: 2025/01/31 22:18:15 by mfidimal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void send_signal(int pid, char *msg)
 			kill(pid, SIGUSR1);
 		else if (crypted[i] == '1')
 			kill(pid, SIGUSR2);
-		usleep(5);
+		usleep(500);
 		i++;
 	}
 	free(crypted);
