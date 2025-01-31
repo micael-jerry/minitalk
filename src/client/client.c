@@ -6,7 +6,7 @@
 /*   By: mfidimal <mfidimal@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 08:31:44 by mfidimal          #+#    #+#             */
-/*   Updated: 2025/01/31 17:41:45 by mfidimal         ###   ########.fr       */
+/*   Updated: 2025/01/31 18:03:22 by mfidimal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,20 @@
 void send_signal(int pid, char *msg)
 {
 	char *crypted;
+	int i;
 	crypted = str_to_binary_str(msg);
+
+	i = 0;
+	while (crypted[i])
+	{
+		if (crypted[i] == '0')
+			kill(pid, SIGUSR1);
+		else if (crypted[i] == '1')
+			kill(pid, SIGUSR2);
+		usleep(5);
+		i++;
+	}
 	free(crypted);
-	kill(pid, SIGUSR1);
 }
 
 int main(int argc, const char *argv[])
