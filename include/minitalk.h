@@ -6,7 +6,7 @@
 /*   By: mfidimal <mfidimal@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 19:49:58 by mfidimal          #+#    #+#             */
-/*   Updated: 2025/01/31 16:44:18 by mfidimal         ###   ########.fr       */
+/*   Updated: 2025/01/31 21:01:10 by mfidimal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ char	*str_to_binary_str(char *str);
 
 // server
 void	sig_handler(int sig_num);
+char	binary_to_char(char *binary);
 
 void	put_error(char *err);
 

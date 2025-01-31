@@ -6,7 +6,7 @@
 /*   By: mfidimal <mfidimal@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 08:31:37 by mfidimal          #+#    #+#             */
-/*   Updated: 2025/01/31 15:05:27 by mfidimal         ###   ########.fr       */
+/*   Updated: 2025/01/31 21:04:36 by mfidimal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 int main(void)
 {
 	int pid = getpid();
-	ft_printf("server pid: %d \n", pid);
+	ft_printf("server PID: %d \n", pid);
+	
 
 	if (signal(SIGUSR1, sig_handler)==SIG_ERR)
 	{
