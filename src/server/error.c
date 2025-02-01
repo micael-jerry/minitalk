@@ -6,7 +6,7 @@
 /*   By: mfidimal <mfidimal@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:10:51 by mfidimal          #+#    #+#             */
-/*   Updated: 2025/01/31 15:12:24 by mfidimal         ###   ########.fr       */
+/*   Updated: 2025/02/01 09:43:28 by mfidimal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	put_error(char *err)
 {
-	ft_printf("%s\n", err);
-	exit(0);
+	ft_putstr_fd(err, 2);
+	exit(1);
 }
