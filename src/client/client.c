@@ -6,37 +6,37 @@
 /*   By: mfidimal <mfidimal@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 08:31:44 by mfidimal          #+#    #+#             */
-/*   Updated: 2025/02/01 05:21:42 by mfidimal         ###   ########.fr       */
+/*   Updated: 2025/02/01 05:47:08 by mfidimal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-static void send_on_char(int pid, char c)
-{
-	int j;
-
-	j = 0;
-	while (j < 8)
-	{
-		if (c >> (7 - j) & 1)
-			kill(pid, SIGUSR2);
-		else
-			kill(pid, SIGUSR1);
-		usleep(100);
-		j++;
-	}
-}
-
-void send_signal(int pid, char *msg)
+static void send_signal(int pid, char *msg)
 {
 	int i;
+	int j;
 
 	i = 0;
 	while (msg[i])
 	{
-		send_on_char(pid, msg[i]);
+		j = 0;
+		while (j < 8)
+		{
+			if (msg[i] >> (7 - j) & 1)
+				kill(pid, SIGUSR2);
+			else
+				kill(pid, SIGUSR1);
+			usleep(500);
+			j++;
+		}
 		i++;
+	}
+	i = 0;
+	while (j < 8)
+	{
+		kill(pid, SIGUSR1);
+		j++;
 	}
 }
 
