@@ -6,7 +6,7 @@
 /*   By: mfidimal <mfidimal@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 08:31:44 by mfidimal          #+#    #+#             */
-/*   Updated: 2025/02/01 05:47:08 by mfidimal         ###   ########.fr       */
+/*   Updated: 2025/02/01 06:33:16 by mfidimal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,11 @@ static void send_signal(int pid, char *msg)
 		}
 		i++;
 	}
-	i = 0;
+	j = 0;
 	while (j < 8)
 	{
 		kill(pid, SIGUSR1);
+		usleep(500);
 		j++;
 	}
 }
