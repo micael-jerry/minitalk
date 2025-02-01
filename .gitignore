@@ -1,3 +1,4 @@
 obj/
 ./client
 ./server
+.venv/
