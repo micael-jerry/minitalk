@@ -6,23 +6,56 @@
 /*   By: mfidimal <mfidimal@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 14:23:35 by mfidimal          #+#    #+#             */
-/*   Updated: 2025/01/31 22:09:56 by mfidimal         ###   ########.fr       */
+/*   Updated: 2025/02/01 06:47:30 by mfidimal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
+static int is_last_char(char c)
+{
+    if (c == '\0')
+        return (1);
+    return (0);
+}
+
+static char *alloc_concat_msg(char *str, int last_index, char c)
+{
+    char *alloc;
+    int i;
+
+    alloc = malloc(sizeof(char) * (last_index + 2));
+    if (!alloc)
+        return (NULL);
+    i = 0;
+    if (str)
+    {
+        while (str[i])
+        {
+            alloc[i] = str[i];
+            i++;
+        }
+        alloc[i] = c;
+        i++;
+        alloc[i] = '\0';
+        free(str);
+    }
+    else
+    {
+        alloc[0] = c;
+        alloc[1] = '\0';
+    }
+    return (alloc);
+}
+
 void	sig_handler(int sig_num)
 {
 	static char	bits_char[9];
-	static int	bit_index;
-	static int	is_initialized;
+	static int	bit_index = 0;
+    static char *str = NULL;
+    static int last_i_str = 0;
+    char character;
 
-	if (!is_initialized)
-	{
-		bit_index = 0;
-		is_initialized = 1;
-	}
 	if (sig_num == SIGUSR1)
 		bits_char[bit_index++] = '0';
 	else if (sig_num == SIGUSR2)
@@ -32,7 +65,18 @@ void	sig_handler(int sig_num)
 	if (bit_index == 8)
 	{
 		bits_char[8] = '\0';
-		ft_printf("%c", binary_to_char(bits_char));
+        character = binary_to_char(bits_char);
+        if (is_last_char(character))
+        {
+            ft_putendl_fd(str, 1);
+            str = (free(str), NULL);
+            last_i_str = 0;
+        }
+        else
+        {
+            str = alloc_concat_msg(str, last_i_str, character);
+            last_i_str++;
+        }
 		bit_index = 0;
 	}
 }
