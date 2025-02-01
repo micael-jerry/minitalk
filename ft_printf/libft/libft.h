@@ -90,8 +90,8 @@ size_t				ft_matrixsize(void **arr);
 void				ft_matrixfree(void **arr);
 
 // BINARY
-char	*char_to_binary_str(unsigned char c);
-char	*str_to_binary_str(char *str);
-char	binary_to_char(char *binary);
+char				*char_to_binary_str(unsigned char c);
+char				*str_to_binary_str(char *str);
+char				binary_to_char(char *binary);
 
 #endif
