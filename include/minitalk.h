@@ -11,11 +11,11 @@
 /* ************************************************************************** */
 
 #ifndef MINITALK_H
-#define MINITALK_H
+# define MINITALK_H
 
-#include "../ft_printf/include/ft_printf.h"
-#include <sys/types.h>
-#include <signal.h>
+# include "../ft_printf/include/ft_printf.h"
+# include <signal.h>
+# include <sys/types.h>
 
 // client
 char	*char_to_binary_str(unsigned char c);

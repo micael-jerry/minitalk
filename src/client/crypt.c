@@ -12,10 +12,10 @@
 
 #include "minitalk.h"
 
-char *char_to_binary_str(unsigned char c)
+char	*char_to_binary_str(unsigned char c)
 {
-	char *res;
-	int i;
+	char	*res;
+	int		i;
 
 	res = ft_strdup("00000000");
 	i = 0;
@@ -28,12 +28,12 @@ char *char_to_binary_str(unsigned char c)
 	return (res);
 }
 
-char *str_to_binary_str(char *str)
+char	*str_to_binary_str(char *str)
 {
-	char *res;
-	int i;
-	char *tmp;
-	char *joined;
+	char	*res;
+	int		i;
+	char	*tmp;
+	char	*joined;
 
 	res = ft_strdup("");
 	i = 0;
