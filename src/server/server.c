@@ -10,19 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "minitalk.h"
 
-int main(void)
+int	main(void)
 {
-	int pid = getpid();
+	int	pid;
+
+	pid = getpid();
 	ft_printf("server PID: %d \n", pid);
-
-	if (signal(SIGUSR1, sig_handler)==SIG_ERR)
+	if (signal(SIGUSR1, sig_handler) == SIG_ERR)
 		exit(0);
-	if (signal(SIGUSR2, sig_handler)==SIG_ERR)
+	if (signal(SIGUSR2, sig_handler) == SIG_ERR)
 		exit(0);
-
 	while (1 == 1)
 		pause();
 	return (0);

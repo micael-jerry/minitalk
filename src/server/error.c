@@ -12,7 +12,7 @@
 
 #include "minitalk.h"
 
-void put_error(char *err)
+void	put_error(char *err)
 {
 	ft_printf("%s\n", err);
 	exit(0);

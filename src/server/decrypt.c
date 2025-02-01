@@ -14,12 +14,11 @@
 
 char	binary_to_char(char *binary)
 {
-	char num;
-	int i;
+	char	num;
+	int		i;
 
 	if (ft_strlen(binary) != 8)
 		return (0);
-
 	num = 0;
 	i = 0;
 	while (i <= 7)
