@@ -6,35 +6,51 @@
 /*   By: mfidimal <mfidimal@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 08:31:44 by mfidimal          #+#    #+#             */
-/*   Updated: 2025/01/31 22:18:15 by mfidimal         ###   ########.fr       */
+/*   Updated: 2025/02/01 05:21:42 by mfidimal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
+static void send_on_char(int pid, char c)
+{
+	int j;
+
+	j = 0;
+	while (j < 8)
+	{
+		if (c >> (7 - j) & 1)
+			kill(pid, SIGUSR2);
+		else
+			kill(pid, SIGUSR1);
+		usleep(100);
+		j++;
+	}
+}
+
 void send_signal(int pid, char *msg)
 {
-	char *crypted;
 	int i;
-	crypted = str_to_binary_str(msg);
 
 	i = 0;
-	while (crypted[i])
+	while (msg[i])
 	{
-		if (crypted[i] == '0')
-			kill(pid, SIGUSR1);
-		else if (crypted[i] == '1')
-			kill(pid, SIGUSR2);
-		usleep(500);
+		send_on_char(pid, msg[i]);
 		i++;
 	}
-	free(crypted);
 }
 
 int main(int argc, const char *argv[])
 {
+	int pid;
+
 	if (argc != 3)
-		ft_printf("Invalid Args\n");
-	send_signal(ft_atoi((char *) argv[1]), (char *) argv[2]);
+		return (ft_printf("Invalid Args\n"), 1);
+	pid = ft_atoi((char *) argv[1]);
+	if (pid <= 0)
+		return (ft_printf("Invalid PID\n"), 1);
+	if (!argv[2][0])
+		return (ft_printf("Empty message\n"), 1);
+	send_signal(pid, (char *) argv[2]);
 	return (0);
 }
