@@ -6,7 +6,7 @@
 /*   By: mfidimal <mfidimal@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 13:40:17 by mfidimal          #+#    #+#             */
-/*   Updated: 2025/01/21 18:39:02 by mfidimal         ###   ########.fr       */
+/*   Updated: 2025/02/01 09:53:36 by mfidimal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,10 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 // MATRIX
 size_t				ft_matrixsize(void **arr);
 void				ft_matrixfree(void **arr);
+
+// BINARY
+char	*char_to_binary_str(unsigned char c);
+char	*str_to_binary_str(char *str);
+char	binary_to_char(char *binary);
 
 #endif

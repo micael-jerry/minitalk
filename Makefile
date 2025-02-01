@@ -5,12 +5,12 @@ FLAGS= -Wall -Wextra -Werror
 INCLUDE= ./include
 
 SRC_DIR_CLIENT=./src/client
-SRC_CLIENT= client.c crypt.c
+SRC_CLIENT= client.c
 OBJ_DIR_CLIENT= ./obj/client
 OBJ_CLIENT= $(SRC_CLIENT:.c=.o)
 
 SRC_DIR_SERVER=./src/server
-SRC_SERVER= server.c sig_handler.c error.c decrypt.c
+SRC_SERVER= server.c sig_handler.c error.c
 OBJ_DIR_SERVER= ./obj/server
 OBJ_SERVER= $(SRC_SERVER:.c=.o)
 
