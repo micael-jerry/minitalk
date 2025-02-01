@@ -6,7 +6,7 @@
 /*   By: mfidimal <mfidimal@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 14:23:35 by mfidimal          #+#    #+#             */
-/*   Updated: 2025/02/01 10:16:58 by mfidimal         ###   ########.fr       */
+/*   Updated: 2025/02/01 10:38:09 by mfidimal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static char	*alloc_concat_msg(char *str, int last_index, char c)
 
 	alloc = malloc(sizeof(char) * (last_index + 2));
 	if (!alloc)
-		return (NULL);
+		return (put_error("Memory allocation failed"), NULL);
 	i = 0;
 	if (str)
 	{
