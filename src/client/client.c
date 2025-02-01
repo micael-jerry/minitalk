@@ -12,12 +12,11 @@
 
 #include "minitalk.h"
 
-static void send_one_signal(int pid, int sig_val)
+static void	send_one_signal(int pid, int sig_val)
 {
-	int response;
+	int	response;
 
 	response = kill(pid, sig_val);
-
 	if (response == -1)
 	{
 		ft_putendl_fd("Error while sending signal (invalid PID, ...)", 2);

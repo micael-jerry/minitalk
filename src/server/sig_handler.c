@@ -6,7 +6,7 @@
 /*   By: mfidimal <mfidimal@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 14:23:35 by mfidimal          #+#    #+#             */
-/*   Updated: 2025/02/01 09:02:37 by mfidimal         ###   ########.fr       */
+/*   Updated: 2025/02/01 10:16:58 by mfidimal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,7 @@ void	sig_handler(int sig_num)
 			last_i_str = 0;
 		}
 		else
-		{
-			str = alloc_concat_msg(str, last_i_str, character);
-			last_i_str++;
-		}
+			str = alloc_concat_msg(str, last_i_str++, character);
 		bit_index = 0;
 	}
 }
